@@ -1,0 +1,51 @@
+@namespace Exam.Models
+@model Idea
+@{
+<div class="row">
+    <div class="col-12 d-flex justify-content-end align-items-end">
+        <a href="/bright_ideas" class="mr-2">Bright Ideas</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-7">
+
+        <p class="">@Model.IdeaCreator.Name says:   @Model.IdeaMessage </p>
+
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<div class="row mt-6">
+    <div class="col-4"></div>
+
+    <div class="col-4">
+        <p>People who like this post: </p>
+        <table class="table table-striped"> 
+            <thead>
+                <tr>
+                    <th>Alias</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var a in Model.Likes)
+                {
+                <tr>
+                    <td>@a.IdeasLikeByUser.Alias</td>
+                    <td>@a.IdeasLikeByUser.Name</td>
+
+
+                </tr>
+                 }
+                
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-4"></div>
+</div>
+    
+}

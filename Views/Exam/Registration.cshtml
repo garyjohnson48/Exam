@@ -1,0 +1,65 @@
+@namespace Exam.Models
+@model User
+
+<div class="row mt-3">
+    <div class="col-6"></div>
+    <div class="col-6 d-flex justify-content-end">
+        <a href="/login">Login</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-4 card">
+        <div class="card-header m-0">
+            <h1>Registration</h1>
+        </div>
+
+        <div class="card-body">
+
+
+            <form action="/Process_Register" method="post">
+                <div class= "form-group d-flex justify-content-end">
+                    <span asp-validation-for="Name"></span>
+                    <label asp-for="Name" class="mr-4"></label>
+                    <input asp-for="Name" class="form-control">
+                </div>
+
+               
+                <div class= "form-group d-flex justify-content-end">
+                    <span asp-validation-for="Alias"></span>
+                    <label asp-for="Alias" class="mr-4"></label>
+                    <input asp-for="Alias" class="form-control">
+                </div>
+                
+
+
+                <div class="form-group d-flex justify-content-end">
+                    <label asp-for="Email" class="mr-4"></label>
+                    <input asp-for="Email" class="form-control">
+                    <span asp-validation-for="Email"></span>
+                </div>
+
+                <div class="form-group d-flex justify-content-end">
+                    <label asp-for="Password" class="mr-4"></label>
+                    <input asp-for="Password" class="form-control">
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+                <div class="form-group d-flex justify-content-end">
+                    <label asp-for="Confirm" class="mr-4"></label>
+                    <input asp-for="Confirm" class="form-control">
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <input type="submit"  class="btn btn-primary" value="Register">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <div class="col-4"></div>
+
+</div>

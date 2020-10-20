@@ -1,0 +1,35 @@
+@namespace Exam.Models
+@model User
+@{
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-end align-items-end">
+            <a href="/bright_ideas" class="mr-2">Bright Ideas</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+<div class="row mt-4">
+    <div class="col-1"></div>
+    <div class="col-6">
+        <p>Name: @ViewBag.user.Name</p>
+        <p>Alias: @ViewBag.user.Alias</p>
+        <p>Email: @ViewBag.user.Email</p>
+    </div>
+    <div class="col-5"></div>
+
+</div>
+
+<hr class="mt-4 mb-4">
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-6">
+        <p>Total Number of Post:@ViewBag.user.IdeasCreated.Count </p>
+        <p>Total Number of Likes:@ViewBag.user.Liked.Count</p>
+    </div>
+    <div class="col-5"></div>
+</div>
+
+
+
+}

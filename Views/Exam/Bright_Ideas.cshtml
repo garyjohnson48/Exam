@@ -1,0 +1,66 @@
+@namespace Exam.Models
+@model Idea
+
+@{
+
+
+
+<div class="row"> 
+    <div class="col-6 d-flex justify-content-start align-items-start">
+
+        <h1>Hi @ViewBag.user.Name !</h1>
+    </div>
+     <div class="col-6 d-flex justify-content-end align-items-end">
+        <h1><a href="/logout">Logout</a></h1>
+    </div>
+</div>
+
+<form asp-action="Add_Idea" asp-controller="Exam" asp-route-UserId="@ViewBag.user.UserId" method="post">
+
+    <div class="form-group row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <span asp-validation-for="IdeaMessage"></span>
+            <textarea asp-for="IdeaMessage" class="form-control"></textarea>
+        </div>
+        <div class="col-2">
+             <input type="submit" value="Add Idea!">
+        </div>
+        <div class="col-2"></div>  
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-12">
+        @foreach (var a in ViewBag.allideas)
+        {   
+            <fieldset>
+    
+                @if(a.UserId == ViewBag.user.UserId)
+                {
+                    <p><a href="/users/@a.UserId ">@a.IdeaCreator.Name</a> says: @a.IdeaMessage<a href="/delete"><button class="btn btn-danger">Delete</button></a></p>
+                }
+                else if(a.UserId != ViewBag.user.UserId)
+                {
+                    <p><a href="/users/@a.UserId ">@a.IdeaCreator.Name</a> says: @a.IdeaMessage</p>
+                    
+                }
+                    
+            </fieldset>
+            <div class="row">
+                <div class="col">
+                    <a href="/like/@a.IdeaId">Like</a> 
+                </div>
+                <div class="col">
+                    <p><a href="/bright_ideas/@a.IdeaId">@a.Likes.Count people</a>  like this</p>
+                </div>
+            </div>
+            
+        }
+    </div>
+</div>
+
+
+
+
+}
